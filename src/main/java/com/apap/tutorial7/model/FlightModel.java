@@ -1,7 +1,7 @@
 package com.apap.tutorial7.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,8 +50,8 @@ public class FlightModel implements Serializable {
     @Column(name = "time", nullable = false)
     private Date time;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "pilot_licenseNumber", referencedColumnName = "license_number")
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "pilot_licenseNumber", referencedColumnName = "license_number", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private PilotModel pilot;

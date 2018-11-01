@@ -1,5 +1,6 @@
 package com.apap.tutorial7.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,4 +16,7 @@ public interface FlightDb extends JpaRepository<FlightModel, Long> {
     void deleteByFlightNumber(String flightNumber);
 
     Optional<FlightModel> findByFlightNumber(String flightNumber);
+    
+    Optional<FlightModel> findById(Long id);
+    
 }

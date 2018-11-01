@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -39,7 +40,7 @@ public class PilotModel implements Serializable {
     @Column(name = "fly_hour", nullable = false)
     private int flyHour;
     
-    @OneToMany(mappedBy = "pilot", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "pilot", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<FlightModel> listFlight = new ArrayList<FlightModel>();
 
     /**
